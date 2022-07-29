@@ -25,8 +25,8 @@ AFRAME.registerComponent('playground', {
 
     //   <a-entity gltf-model="model_asset/rain/scene.gltf" position="-0.252 0.137 -0.049" scale="0.001 0.001 0.001" 
     //               animation-mixer="clip:Take 001; loop:infinite"></a-entity>
-    var l = 51.520;
-    var lat = -0.132;
+    var l = 51.52470384556393;//, -0.1323487488849717;
+    var lat = -0.1323487488849717;
     for (var i = 0; i < 1; i++) {
         var model = document.createElement('a-entity');
         model.setAttribute('gltf-model', '#rain')
