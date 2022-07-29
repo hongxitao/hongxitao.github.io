@@ -1,3 +1,11 @@
+var Px = 0;
+var sum = 0; 
+var running = false; 
+var pervious_velocity = 0; //can be calibrated
+var pervious_acc = 0;
+var current_velocity = 0;
+//var Py = 0;
+
 AFRAME.registerComponent('playground', {
     /**
      * Code within this function will be called when everything in <a-scene> is ready and loaded.
@@ -13,20 +21,9 @@ AFRAME.registerComponent('playground', {
   
     sceneE1.appendChild(rainmodel)
 
-    window.addEventListener("devicemotion", handleMotion);
+   
     
-    // var model = document.createElement('a-entity');
-    // model.setAttribute('gltf-model', '#rain')
-    //model.setAttribute('gps-entity-place',{longitude: 51.524, 
-    //                   
-    // model.setAttribute('position', 
-    //     {x: 110, 
-    //         y: 10,//getRandomArbitrary(-1500,1500), 
-    //         z: 0});                 //latitude: -0.132})
-    // sceneE1.appendChild(model);
-
-    //   <a-entity gltf-model="model_asset/rain/scene.gltf" position="-0.252 0.137 -0.049" scale="0.001 0.001 0.001" 
-    //               animation-mixer="clip:Take 001; loop:infinite"></a-entity>
+   
     var l = 51.52470384556393;//, -0.1323487488849717;
     var lat = -0.1323487488849717;
     for (var i = 0; i < 1; i++) {
@@ -50,7 +47,11 @@ AFRAME.registerComponent('playground', {
         //model.setAttribute('animation', weather_animation_attributes)
         sceneE1.appendChild(model);
     }
-
+   
+    console.log(Px);
+    document.querySelector("#snap").addEventListener("click", ()=>{
+      test();
+    })
     
    
     },
@@ -59,8 +60,26 @@ AFRAME.registerComponent('playground', {
         //console.log(watchAcc());
     }
   });
+
+  function test(){
+    window.addEventListener("devicemotion", handleMotion);
+    Px = document.querySelector('a-camera').object3D.position.x; 
+
+  }
   function handleMotion(event){
-    document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
+    //document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
+    var Accx = event.acceleration.x;
+    //if(running){
+      current_velocity += (pervious_acc + (Accx-pervious_acc)/2)*event.interval;
+      Px += (pervious_velocity + (current_velocity-pervious_velocity)/2)*event.interval;
+      pervious_velocity = current_velocity; 
+      pervious_acc = Accx;
+      document.querySelector("a-text").setAttribute("value", Px);
+      //running = false; 
+    //}else{
+      //Px = 
+    //}
+
   }
   
   function getRandomArbitrary(min, max, decimals) {
