@@ -12,6 +12,8 @@ AFRAME.registerComponent('playground', {
 
   
     sceneE1.appendChild(rainmodel)
+
+    window.addEventListener("devicemotion", handleMotion);
     
     // var model = document.createElement('a-entity');
     // model.setAttribute('gltf-model', '#rain')
@@ -57,11 +59,13 @@ AFRAME.registerComponent('playground', {
         //console.log(watchAcc());
     }
   });
-
+  function handleMotion(event){
+    document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
+  }
   
   function getRandomArbitrary(min, max, decimals) {
     return (Math.random() * (max - min) + min).toFixed(decimals);
-}
+  }
 
 function setAttributes(element, attributes) {
   Object.keys(attributes).forEach(attr => {

@@ -11,7 +11,7 @@
     </head>
 
     <body style="margin: 0; overflow: hidden;">
-        <script>
+        <!--<script>
             //function incrementEventCount(){
                 //let counterElement = document.getElementById("num-observed-events")
                 //let eventCount = parseInt(counterElement.innerHTML)
@@ -59,15 +59,15 @@
                 //demo_button.classList.remove('btn-danger');
                 is_running = false;
             }else{
-                window.addEventListener("devicemotion", handleMotion);
-                window.addEventListener("deviceorientation", handleOrientation);
+                
+                //window.addEventListener("deviceorientation", handleOrientation);
                 //document.getElementById("start_demo").innerHTML = "Stop demo";
                 //demo_button.classList.remove('btn-success');
                 //demo_button.classList.add('btn-danger');
                 is_running = true;
             }
 
-        </script>
+        </script>-->
         <a-scene playground
             embedded
             loading-screen="enabled: false;"
@@ -96,7 +96,10 @@
             = "simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 "
             -->
                 <!-- (51.5247101, -0.1324887) -->
-            <a-camera gps-camera  rotation-reader ></a-camera>
+            
+            <a-camera gps-camera  rotation-reader >
+                <a-text value = "hello" position="0 0 -1"></a-text>
+            </a-camera>
         </a-scene>
         <!-- <button id = "start_demo"></button> -->
     </body>
