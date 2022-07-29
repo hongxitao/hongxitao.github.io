@@ -50,8 +50,7 @@ AFRAME.registerComponent('playground', {
     }
 
     
-    getAcc();
-    console.log(watchAcc());
+   
     },
 
     tick: function() {
@@ -59,21 +58,7 @@ AFRAME.registerComponent('playground', {
     }
   });
 
-  function getAcc(){
-    plus.accelerometer.getCurrentAcceleration(   //获取当前设备加速度信息
-        function(a){                   //获取成功后的回调函数
-          //a是一个对象   目前只需要知道他的xAixs，yAxis，zAxis三个属性
-        document.querySelector('#output1').innerHTML = "x:"+a.xAxis+"\ny:"+a.yAxis+"\nz:"+a.zAxis;
-        }
-          );
-    }
-    
-    function watchAcc(){
-        watch = plus.accelerometer.watchAcceleration(function(a){
-        document.querySelector('#output2').innerText = "x:" + a.xAxis + "\ny:" + a.yAxis + "\nz:" + a.zAxis;},function(e){
-        alert( "Acceleration error: " + e.message ); 
-        },false)
-    }
+  
   function getRandomArbitrary(min, max, decimals) {
     return (Math.random() * (max - min) + min).toFixed(decimals);
 }
