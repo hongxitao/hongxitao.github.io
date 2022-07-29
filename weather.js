@@ -1,9 +1,10 @@
 var Px = 0;
 var sum = 0; 
-var running = false; 
+var running = true; 
 var pervious_velocity = 0; //can be calibrated
 var pervious_acc = 0;
 var current_velocity = 0;
+var cd = 3000;
 //var Py = 0;
 
 AFRAME.registerComponent('playground', {
@@ -49,14 +50,24 @@ AFRAME.registerComponent('playground', {
     }
    
     console.log(Px);
-    document.querySelector("#snap").addEventListener("click", ()=>{
-      test();
-    })
+    // document.querySelector("[button-controls]").addEventListener("click", ()=>{
+    //   test();
+    // })
     
    
     },
 
     tick: function() {
+      if(running){
+        cd--;
+        console.log(cd)
+        if(cd<0){
+          test();
+          running =false;
+        }
+        
+      }
+        
         //console.log(watchAcc());
     }
   });
