@@ -97,25 +97,26 @@ AFRAME.registerComponent('playground', {
     //document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
     console.log("in motion")
     var Accx = event.acceleration.x;
-    if(Math.abs(Accx)>0.25 ){
-      document.querySelector("a-text").setAttribute("value", Accx);
+    if(Math.abs(Accx)>0.5){
+      //document.querySelector("a-text").setAttribute("value", Accx);
     }
     else{
       count++;
       if(count>5){
         Accx=0;
-        document.querySelector("a-text").setAttribute("value", Accx);
+        //document.querySelector("a-text").setAttribute("value", Accx);
         count = 0;
       }
     }
     //setTimeout(10)
     //if(running){
         //0 x/ 1 y/ 2 z
-      // current_velocity[0] += (pervious_acc[0] + (Accx-pervious_acc[0])/2)*event.interval;
-      // Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
-      // pervious_velocity[0] = current_velocity[0]; 
-      // pervious_acc[0] = Accx;
-      
+      current_velocity[0] += (pervious_acc[0] + (Accx-pervious_acc[0])/2)*event.interval;
+      document.querySelector("a-text").setAttribute("value", current_velocity);
+      Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
+      pervious_velocity[0] = current_velocity[0]; 
+      pervious_acc[0] = Accx;
+      //document.querySelector("a-text").setAttribute("value", Accx);
       //running = false; 
     //}else{
       //Px = 
