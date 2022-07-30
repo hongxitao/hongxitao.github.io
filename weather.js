@@ -83,7 +83,7 @@ AFRAME.registerComponent('playground', {
   function test(){
     window.addEventListener("devicemotion", handleMotion);
     Px = document.querySelector('a-camera').object3D.position.x; 
-    window.addEventListener("deviceorientation", handleOrientation);
+    //window.addEventListener("deviceorientation", handleOrientation);
 
   }
   function handleMotion(event){
