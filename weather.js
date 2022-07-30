@@ -98,9 +98,11 @@ AFRAME.registerComponent('playground', {
     console.log("in motion")
     var Accx = event.acceleration.x;
     if(Math.abs(Accx)>0.5){
+      
       //document.querySelector("a-text").setAttribute("value", Accx);
     }
     else{
+      Accx = pervious_acc[0];
       count++;
       if(count>5){
         Accx=0;
