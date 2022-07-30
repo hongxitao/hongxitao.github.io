@@ -9,6 +9,7 @@ var alpha=0;
 var beta=0;
 var gamma=0;
 var count = 0; 
+var acc = [];
 //var Py = 0;
 
 AFRAME.registerComponent('playground', {
@@ -27,6 +28,7 @@ AFRAME.registerComponent('playground', {
     current_velocity[0] = 0;
     current_velocity[1] = 0;
     current_velocity[2] = 0;
+    acc[0] = 0;
     var sceneE1 = document.querySelector('a-scene')
     console.log(sceneE1);
     var rainmodel = document.createElement('a-asset-item')
@@ -98,14 +100,14 @@ AFRAME.registerComponent('playground', {
     console.log("in motion")
     var Accx = event.acceleration.x;
     if(Math.abs(Accx)>0.5){
-      
+      acc[0] = Accx;
       //document.querySelector("a-text").setAttribute("value", Accx);
     }
     else{
-      Accx = pervious_acc[0];
+      //Accx = pervious_acc[0];
       count++;
       if(count>5){
-        Accx=0;
+        acc[0]=0;
         //document.querySelector("a-text").setAttribute("value", Accx);
         count = 0;
       }
@@ -113,11 +115,11 @@ AFRAME.registerComponent('playground', {
     //setTimeout(10)
     //if(running){
         //0 x/ 1 y/ 2 z
-      current_velocity[0] += (pervious_acc[0] + (Accx-pervious_acc[0])/2)*event.interval;
+      current_velocity[0] += (pervious_acc[0] + (acc[0]-pervious_acc[0])/2)*event.interval;
       document.querySelector("a-text").setAttribute("value", current_velocity);
       Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
       pervious_velocity[0] = current_velocity[0]; 
-      pervious_acc[0] = Accx;
+      pervious_acc[0] = acc[0];
       //document.querySelector("a-text").setAttribute("value", Accx);
       //running = false; 
     //}else{
