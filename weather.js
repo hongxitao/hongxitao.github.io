@@ -8,6 +8,7 @@ var cd = 3000;
 var alpha=0;
 var beta=0;
 var gamma=0;
+var count = 0; 
 //var Py = 0;
 
 AFRAME.registerComponent('playground', {
@@ -96,8 +97,16 @@ AFRAME.registerComponent('playground', {
     //document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
     console.log("in motion")
     var Accx = event.acceleration.x;
-    if(Math.abs(Accx)>0.25){
+    if(Math.abs(Accx)>0.25 ){
       document.querySelector("a-text").setAttribute("value", Accx);
+    }
+    else{
+      count++;
+      if(count>5){
+        Accx=0;
+        document.querySelector("a-text").setAttribute("value", Accx);
+        count = 0;
+      }
     }
     //setTimeout(10)
     //if(running){
