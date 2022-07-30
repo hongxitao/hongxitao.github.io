@@ -94,7 +94,7 @@ AFRAME.registerComponent('playground', {
 
   function test(){
     window.addEventListener("devicemotion", handleMotion);
-    Px = document.querySelector('a-camera').object3D.position.x; 
+    //Px = document.querySelector('a-camera').object3D.position.x; 
     //window.addEventListener("deviceorientation", handleOrientation);
 
   }
@@ -130,11 +130,12 @@ AFRAME.registerComponent('playground', {
 
         //0 x/ 1 y/ 2 z
       current_velocity[0] += (pervious_acc[0] + (acc[0]-pervious_acc[0])/2)*event.interval;
-      document.querySelector("a-text").setAttribute("value", current_velocity);
+      
       Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
       pervious_velocity[0] = current_velocity[0]; 
       pervious_acc[0] = acc[0];
-      document.querySelector("#inter").setAttribute("value", event.interval);
+      document.querySelector("a-text").setAttribute("value", Px);
+      document.querySelector("#inter").setAttribute("value", current_velocity);
 
   }
   function handleOrientation(event){
