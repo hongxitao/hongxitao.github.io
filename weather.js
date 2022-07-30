@@ -1,18 +1,25 @@
 var Px = 0;
 var sum = 0; 
 var running = true; 
-var pervious_velocity = 0; //can be calibrated
-var pervious_acc = 0;
-var current_velocity = 0;
+var pervious_velocity = []; //can be calibrated
+const pervious_acc = [];
+var current_velocity = [];
 var cd = 3000;
+var alpha=0;
+var beta=0;
+var gamma=0;
 //var Py = 0;
 
 AFRAME.registerComponent('playground', {
+  
     /**
      * Code within this function will be called when everything in <a-scene> is ready and loaded.
      */
     init: function () {
       // Add code here!
+    pervious_acc[0] = 0;
+    pervious_acc[1] = 0;
+    pervious_acc[2] = 0; 
     var sceneE1 = document.querySelector('a-scene')
     console.log(sceneE1);
     var rainmodel = document.createElement('a-asset-item')
@@ -57,40 +64,48 @@ AFRAME.registerComponent('playground', {
    
     },
 
-    tick: function() {
-      if(running){
-        cd--;
-        console.log(cd)
-        if(cd<0){
-          test();
-          running =false;
-        }
+    // tick: function() {
+    //   if(running){
+    //     cd--;
+    //     console.log(cd)
+    //     if(cd<0){
+    //       test();
+    //       running =false;
+    //     }
         
-      }
+    //   }
         
-        //console.log(watchAcc());
-    }
+    //     //console.log(watchAcc());
+    // }
   });
 
   function test(){
     window.addEventListener("devicemotion", handleMotion);
     Px = document.querySelector('a-camera').object3D.position.x; 
+    window.addEventListener("deviceorientation", handleOrientation);
 
   }
   function handleMotion(event){
     //document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
+    
     var Accx = event.acceleration.x;
     //if(running){
-      current_velocity += (pervious_acc + (Accx-pervious_acc)/2)*event.interval;
-      Px += (pervious_velocity + (current_velocity-pervious_velocity)/2)*event.interval;
-      pervious_velocity = current_velocity; 
-      pervious_acc = Accx;
+        //0 x/ 1 y/ 2 z
+      current_velocity[0] += (pervious_acc[0] + (Accx-pervious_acc[0])/2)*event.interval;
+      Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
+      pervious_velocity[0] = current_velocity[0]; 
+      pervious_acc[0] = Accx;
       document.querySelector("a-text").setAttribute("value", Px);
       //running = false; 
     //}else{
       //Px = 
     //}
 
+  }
+  function handleOrientation(event){
+    alpha = event.alpha;
+    beta = event.beta;
+    gamma= event.gamma;
   }
   
   function getRandomArbitrary(min, max, decimals) {
