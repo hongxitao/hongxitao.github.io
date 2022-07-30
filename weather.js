@@ -57,6 +57,7 @@ AFRAME.registerComponent('playground', {
     }
    
     console.log(Px);
+
     // document.querySelector("[button-controls]").addEventListener("click", ()=>{
     //   test();
     // })

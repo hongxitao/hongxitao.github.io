@@ -13,8 +13,9 @@
     </head>
 
     <body>
-       
-        <div style="margin-top: 40%; z-index: 99999;">
+    
+        
+        <div style="margin-top: 40%;  z-index: 99999; position: fixed;">
             <center><button id="snap1" onclick="test()">拍照</button></center>
         </div>
 
@@ -24,17 +25,38 @@
             >
             
         
+                <!-- <a-image 
+                    src="assets/asset.png"
+                    look-at="[gps-camera]"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 51.524755; longitude: -0.132717;"
+                ></a-image>
+
+                <a-image
+                    src="assets/asset.png"
+                    look-at="[gps-camera]"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 51.5246899; longitude: -0.1325494;"
+                ></a-image>
+
+                <a-image
+                    src="assets/asset.png"
+                    look-at="[gps-camera]"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 51.5247101; longitude: -0.1324887;"
+                ></a-image> 
+            = "simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 "
+            -->
+                <!-- (51.5247101, -0.1324887) -->
                 
-                
-           
                     <a-camera gps-camera  rotation-reader >
              
-                <a-text value = "hello" position="0 0 -1" scale=" 0.5 0.5 0.5"></a-text>
+                <a-text value = "hello" position="0 0 -1" scale = "0.5 0.5 0.5"></a-text>
                 
                     <!-- <a-entity button-controls></a-entity> -->
                 
             </a-camera>
-            <
+            <a-entity id="snap" geometry="primitive: box" material="color: red" position="0 0 -2" scale = " 0.5 0.5 0.5">
         </a-scene>
         
         <!-- <button id = "start_demo"></button> -->
