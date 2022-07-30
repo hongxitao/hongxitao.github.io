@@ -20,6 +20,12 @@ AFRAME.registerComponent('playground', {
     pervious_acc[0] = 0;
     pervious_acc[1] = 0;
     pervious_acc[2] = 0; 
+    pervious_velocity[0] = 0;
+    pervious_velocity[1] = 0;
+    pervious_velocity[2] = 0;
+    current_velocity[0] = 0;
+    current_velocity[1] = 0;
+    current_velocity[2] = 0;
     var sceneE1 = document.querySelector('a-scene')
     console.log(sceneE1);
     var rainmodel = document.createElement('a-asset-item')
