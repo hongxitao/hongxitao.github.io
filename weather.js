@@ -122,6 +122,7 @@ AFRAME.registerComponent('playground', {
         {
           current_velocity[0] = 0;
           pervious_velocity[0] = 0; 
+          Vec_count =0;
         }
     }
 
