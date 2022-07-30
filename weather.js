@@ -8,7 +8,8 @@ var cd = 3000;
 var alpha=0;
 var beta=0;
 var gamma=0;
-var count = 0; 
+var Acc_count = 0; 
+var Vec_count = 0;
 var acc = [];
 //var Py = 0;
 
@@ -105,26 +106,29 @@ AFRAME.registerComponent('playground', {
     }
     else{
       //Accx = pervious_acc[0];
-      count++;
-      if(count>5){
+      Acc_count++;
+      if(Acc_count>5){
         acc[0]=0;
         //document.querySelector("a-text").setAttribute("value", Accx);
-        count = 0;
+        Acc_count = 0;
       }
     }
-    //setTimeout(10)
-    //if(running){
+    if(current_velocity[0] == pervious_velocity[0]){
+        Vec_count++;
+    }
+    else if(Math.abs(0.2)>current_velocity[0]){
+      current_velocity[0] = 0;
+      pervious_velocity[0] = 0; 
+
+    }
+
         //0 x/ 1 y/ 2 z
       current_velocity[0] += (pervious_acc[0] + (acc[0]-pervious_acc[0])/2)*event.interval;
       document.querySelector("a-text").setAttribute("value", current_velocity);
       Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
       pervious_velocity[0] = current_velocity[0]; 
       pervious_acc[0] = acc[0];
-      //document.querySelector("a-text").setAttribute("value", Accx);
-      //running = false; 
-    //}else{
-      //Px = 
-    //}
+
 
   }
   function handleOrientation(event){
