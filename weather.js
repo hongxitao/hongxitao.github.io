@@ -96,13 +96,16 @@ AFRAME.registerComponent('playground', {
     //document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
     
     var Accx = event.acceleration.x;
+    if(Math.abs(Accx)>0.2){
+      document.querySelector("a-text").setAttribute("value", Accx);
+    }
     //if(running){
         //0 x/ 1 y/ 2 z
       // current_velocity[0] += (pervious_acc[0] + (Accx-pervious_acc[0])/2)*event.interval;
       // Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
       // pervious_velocity[0] = current_velocity[0]; 
       // pervious_acc[0] = Accx;
-      document.querySelector("a-text").setAttribute("value", Accx);
+      
       //running = false; 
     //}else{
       //Px = 
