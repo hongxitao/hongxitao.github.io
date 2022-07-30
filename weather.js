@@ -98,11 +98,11 @@ AFRAME.registerComponent('playground', {
     var Accx = event.acceleration.x;
     //if(running){
         //0 x/ 1 y/ 2 z
-      current_velocity[0] += (pervious_acc[0] + (Accx-pervious_acc[0])/2)*event.interval;
-      Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
-      pervious_velocity[0] = current_velocity[0]; 
-      pervious_acc[0] = Accx;
-      document.querySelector("a-text").setAttribute("value", Px);
+      // current_velocity[0] += (pervious_acc[0] + (Accx-pervious_acc[0])/2)*event.interval;
+      // Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
+      // pervious_velocity[0] = current_velocity[0]; 
+      // pervious_acc[0] = Accx;
+      document.querySelector("a-text").setAttribute("value", Accx);
       //running = false; 
     //}else{
       //Px = 
