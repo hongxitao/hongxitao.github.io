@@ -118,7 +118,7 @@ AFRAME.registerComponent('playground', {
   
     if(current_velocity[0] === pervious_velocity[0]){
         Vec_count++;
-        if(Vec_count>50) //&& Math.abs(0.4)>current_velocity[0])
+        if(Vec_count>20) //&& Math.abs(0.4)>current_velocity[0])
         {
           current_velocity[0] = 0;
           pervious_velocity[0] = 0; 
@@ -134,7 +134,7 @@ AFRAME.registerComponent('playground', {
       Px += (pervious_velocity[0] + (current_velocity[0]-pervious_velocity[0])/2)*event.interval;
       pervious_velocity[0] = current_velocity[0]; 
       pervious_acc[0] = acc[0];
-
+      document.querySelector("#inter").setAttribute("value", event.interval);
 
   }
   function handleOrientation(event){
