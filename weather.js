@@ -1,3 +1,5 @@
+const { isGeneratorFunction } = require("util/types");
+
 var Px = 0;
 var sum = 0; 
 var running = true; 
@@ -113,14 +115,17 @@ AFRAME.registerComponent('playground', {
         Acc_count = 0;
       }
     }
+  
     if(current_velocity[0] == pervious_velocity[0]){
         Vec_count++;
+        if(Vec_count>10 && Math.abs(0.2)>current_velocity[0])
+        {
+          current_velocity[0] = 0;
+          pervious_velocity[0] = 0; 
+        }
     }
-    else if(Math.abs(0.2)>current_velocity[0]){
-      current_velocity[0] = 0;
-      pervious_velocity[0] = 0; 
 
-    }
+    
 
         //0 x/ 1 y/ 2 z
       current_velocity[0] += (pervious_acc[0] + (acc[0]-pervious_acc[0])/2)*event.interval;
