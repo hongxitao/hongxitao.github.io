@@ -94,11 +94,12 @@ AFRAME.registerComponent('playground', {
   }
   function handleMotion(event){
     //document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
-    
+    console.log("in motion")
     var Accx = event.acceleration.x;
-    if(Math.abs(Accx)>0.2){
+    if(Math.abs(Accx)>0.25){
       document.querySelector("a-text").setAttribute("value", Accx);
     }
+    //setTimeout(10)
     //if(running){
         //0 x/ 1 y/ 2 z
       // current_velocity[0] += (pervious_acc[0] + (Accx-pervious_acc[0])/2)*event.interval;
