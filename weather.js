@@ -118,7 +118,7 @@ AFRAME.registerComponent('playground', {
   
     if(current_velocity[0] === pervious_velocity[0]){
         Vec_count++;
-        if(Vec_count>10 && Math.abs(0.2)>current_velocity[0])
+        if(Vec_count>100 && Math.abs(0.4)>current_velocity[0])
         {
           current_velocity[0] = 0;
           pervious_velocity[0] = 0; 
