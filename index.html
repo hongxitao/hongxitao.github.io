@@ -49,16 +49,17 @@
             = "simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 "
             -->
                 <!-- (51.5247101, -0.1324887) -->
-                <a-entity id="snap" geometry="primitive: box" material="color: red" position="0 0 -2" scale = " 0.5 0.5 0.5">
+                
            
-                    <a-camera gps-camera  rotation-reader >
+                <a-camera gps-camera ="simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 " rotation-reader >
              
-                <a-text value = "hello" position="0 0 -1"></a-text>
+                <a-text value = "hello" position="0 0 -1" scale = "0.2 0.2 0.2"></a-text>
+                <a-text id = "inter" value = "h" position = "0 -0.3 -1" scale = "0.2 0.2 0.2"></a-text>
                 
                     <!-- <a-entity button-controls></a-entity> -->
                 
             </a-camera>
-            <a-entity id="snap" geometry="primitive: box" material="color: red" position="0 0 -2" scale = " 0.5 0.5 0.5">
+            <!-- <a-entity id="snap" geometry="primitive: box" material="color: red" position="0 0 -2" scale = " 0.5 0.5 0.5"> -->
         </a-scene>
         
         <!-- <button id = "start_demo"></button> -->
