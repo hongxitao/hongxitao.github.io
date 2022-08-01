@@ -44,8 +44,8 @@ AFRAME.registerComponent('playground', {
    
     
    
-    var l = 51.52470384556393;//, -0.1323487488849717;
-    var lat = -0.1323487488849717;
+    var l = 51.5247038455639;//, -0.1323487488849717;
+    var lat = -0.132348748884972;
     for (var i = 0; i < 1; i++) {
         var model = document.createElement('a-entity');
         model.setAttribute('gltf-model', '#rain')
