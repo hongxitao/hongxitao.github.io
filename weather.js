@@ -116,16 +116,16 @@ AFRAME.registerComponent('playground', {
         Acc_count = 0;
       }
     }
-  
-    // if(current_velocity[0] === pervious_velocity[0]){
-    //     Vec_count++;
-    //     if(Vec_count>20) //&& Math.abs(0.4)>current_velocity[0])
-    //     {
-    //       current_velocity[0] = 0;
-    //       pervious_velocity[0] = 0; 
-    //       Vec_count =0;
-    //     }
-    // }
+    
+    if(current_velocity[0] === pervious_velocity[0]){
+        Vec_count++;
+        if(Vec_count>20) //&& Math.abs(0.1)>current_velocity[0])
+        {
+          current_velocity[0] = 0;
+          pervious_velocity[0] = 0; 
+          Vec_count =0;
+        }
+    }
 
     
 
