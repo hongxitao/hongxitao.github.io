@@ -50,7 +50,7 @@ AFRAME.registerComponent('playground', {
         var model = document.createElement('a-entity');
         model.setAttribute('gltf-model', '#rain')
         model.setAttribute( "animation-mixer","clip:Take 001; loop:infinite")
-        /model.setAttribute('gps-entity-place',{longitude: l,//getRandomArbitrary(51.520,51.524, 6 ),
+        model.setAttribute('gps-entity-place',{longitude: l,//getRandomArbitrary(51.520,51.524, 6 ),
                                                  latitude: lat})//getRandomArbitrary(-0.129, -0.132, 6) })
         // model.setAttribute('position', 
         // {x: 1, 
