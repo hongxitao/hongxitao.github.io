@@ -102,20 +102,20 @@ AFRAME.registerComponent('playground', {
     //document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
     console.log("in motion")
     var Accx = event.acceleration.x;
-    acc[0] = Accx;
-    // if(Math.abs(Accx)>0.5){
-    //   acc[0] = Accx;
-    //   //document.querySelector("a-text").setAttribute("value", Accx);
-    // }
-    // else{
-    //   //Accx = pervious_acc[0];
-    //   Acc_count++;
-    //   if(Acc_count>5){
-    //     acc[0]=0;
-    //     //document.querySelector("a-text").setAttribute("value", Accx);
-    //     Acc_count = 0;
-    //   }
-    // }
+    //acc[0] = Accx;
+    if(Math.abs(Accx)>0.3){
+      acc[0] = Accx;
+      //document.querySelector("a-text").setAttribute("value", Accx);
+    }
+    else{
+      //Accx = pervious_acc[0];
+      Acc_count++;
+      if(Acc_count>20){
+        acc[0]=0;
+        //document.querySelector("a-text").setAttribute("value", Accx);
+        Acc_count = 0;
+      }
+    }
   
     // if(current_velocity[0] === pervious_velocity[0]){
     //     Vec_count++;
