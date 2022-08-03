@@ -24,12 +24,25 @@
 <!-- rawgithack development URL -->
 <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
 
+<script>
+  AFRAME.registerComponent('play', {
+
+    init: function(){
+      var scene = document.querySelector("a-scene");
+      scene.addEventListener('markerFound', function(){
+        alert("found it");
+      })
+    }
+    
+  })
+</script>
+
 <body style='margin : 0px; overflow: hidden;'>
    <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
-    <a-scene
+    <a-scene play
         vr-mode-ui="enabled: false;"
         renderer="logarithmicDepthBuffer: true;"
         embedded arjs='trackingMethod: best; sourceType: webcam; 
@@ -40,7 +53,7 @@
         <!-- use rawgithack to retrieve the correct url for nft marker (see 'trex' below) -->
         <a-nft
             type='nft' url='/output/desk'
-            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5 ' emitevents="true">
             <a-box position='0 0.5 0' material='opacity: 0.9;' scale="10 10 10"></a-box>
         <a-text value = "hello world" color = "white" position = '0 2 0' wireframe = true wireframe-linewidth = 5> </a-text> 
         </a-nft>
