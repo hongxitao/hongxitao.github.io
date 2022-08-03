@@ -43,11 +43,11 @@ AFRAME.registerComponent('playground', {
 
   
     sceneE1.appendChild(rainmodel)
-      sceneE1.addEventListener("markerFound", function(){
-        position = document.querySelector("#m1").getAttribute('position');
-            //alert(position);
-            console.log(position)
-      })
+      // sceneE1.addEventListener("markerFound", function(){
+      //   position = document.querySelector("#m1").getAttribute('position');
+      //       //alert(position);
+      //       console.log(position)
+      // })
 
     var l = 51.5247038455639;//, -0.1323487488849717;
     var lat = -0.132348748884972;
@@ -78,7 +78,17 @@ AFRAME.registerComponent('playground', {
 
    
     },
-
+    tick: function(){
+      var scene = document.querySelector("a-scene");
+      var mark1 = document.querySelector("#m1");
+      var mark2 = document.querySelector("#m2");
+      if(mark1.visible && mark2.visible){
+        console.log("mark1")
+        console.log(mark1.getAttribute("position"))
+        console.log("mark2")
+        console.log(mark2.getAttribute("position"))
+      }
+    }
 
   });
 
