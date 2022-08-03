@@ -23,12 +23,12 @@
 
         <a-scene playground
             
-            arjs="sourceType: webcam; sourceWidth:960; sourceHeight:1280;  debugUIEnabled: false;"
+            arjs="trackingMethod: best; sourceType: webcam; sourceWidth:960; sourceHeight:1280;  debugUIEnabled: false;"
             >
             
         
               
-                
+                <a-marker id = "m1" preset="hiro" emitevents="true"></a-marker>
            
                 <a-camera gps-camera ="simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 " rotation-reader >
              
@@ -37,7 +37,7 @@
                 
                     <!-- <a-entity button-controls></a-entity> -->
                 
-            </a-camera>
+                </a-camera>
             <!-- displayWidth: 1280; displayHeight: 960;<a-entity id="snap" geometry="primitive: box" material="color: red" position="0 0 -2" scale = " 0.5 0.5 0.5"> -->
         </a-scene>
         

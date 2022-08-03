@@ -43,7 +43,11 @@ AFRAME.registerComponent('playground', {
 
   
     sceneE1.appendChild(rainmodel)
-
+      sceneE1.addEventListener("markerFound", function(){
+        position = document.querySelector("#m1").getAttribute('position');
+            //alert(position);
+            console.log(position)
+      })
 
     var l = 51.5247038455639;//, -0.1323487488849717;
     var lat = -0.132348748884972;
