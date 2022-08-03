@@ -13,6 +13,8 @@ var gamma=0;
 var Acc_count = 0; 
 var Vec_count = 0;
 var acc = [];
+var avgcount = 0; 
+var interval_time = 0; 
 //var Py = 0;
 var date = Date.now();
 
@@ -87,9 +89,13 @@ AFRAME.registerComponent('playground', {
     //document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
     //console.log("in motion")
     var temp = Date.now();
-    var time = date-  temp;
+    var time = temp- date;
     //console.log(time); 
+    interval_time +=time; 
+    avgcount++; 
+    time = interval_time/avgcount;
     date = temp;
+
     var Accx = event.acceleration.x;
     var interval = event.interval / 1000;
     //acc[0] = Accx;
