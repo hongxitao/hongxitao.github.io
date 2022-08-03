@@ -93,11 +93,11 @@ AFRAME.registerComponent('playground', {
     //console.log(time); 
     interval_time +=time; 
     avgcount++; 
-    time = interval_time/avgcount;
+    //time = interval_time/avgcount;
     date = temp;
 
     var Accx = event.acceleration.x;
-    var interval = event.interval / 1000;
+    var interval = time / 1000;
     //acc[0] = Accx;
     if(Math.abs(Accx)>0.3){
       acc[0] = Accx;
