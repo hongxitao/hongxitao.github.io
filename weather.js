@@ -14,6 +14,7 @@ var Acc_count = 0;
 var Vec_count = 0;
 var acc = [];
 //var Py = 0;
+var date = Date.now();
 
 AFRAME.registerComponent('playground', {
   
@@ -76,15 +77,19 @@ AFRAME.registerComponent('playground', {
   });
 
   function test(){
-    window.location.href = '/NFTBasedhtml.html';
-    //window.addEventListener("devicemotion", handleMotion);
+    //window.location.href = '/NFTBasedhtml.html';
+    window.addEventListener("devicemotion", handleMotion);
     //Px = document.querySelector('a-camera').object3D.position.x; 
     //window.addEventListener("deviceorientation", handleOrientation);
 
   }
   function handleMotion(event){
     //document.querySelector("a-text").setAttribute("value", event.accelerationIncludingGravity.x);//console.log(event.accelerationIncludingGravity.x);
-    console.log("in motion")
+    //console.log("in motion")
+    var temp = Date.now();
+    var time = date-  temp;
+    //console.log(time); 
+    date = temp;
     var Accx = event.acceleration.x;
     var interval = event.interval / 1000;
     //acc[0] = Accx;
@@ -121,7 +126,7 @@ AFRAME.registerComponent('playground', {
       pervious_velocity[0] = current_velocity[0]; 
       pervious_acc[0] = acc[0];
       document.querySelector("a-text").setAttribute("value", Px);
-      document.querySelector("#inter").setAttribute("value", current_velocity);
+      document.querySelector("#inter").setAttribute("value", time);
 
   }
   function handleOrientation(event){
