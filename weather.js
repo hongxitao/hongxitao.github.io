@@ -35,14 +35,14 @@ AFRAME.registerComponent('playground', {
     current_velocity[1] = 0;
     current_velocity[2] = 0;
     acc[0] = 0;
-    var sceneE1 = document.querySelector('a-scene')
-    console.log(sceneE1);
+    var scene = document.querySelector('a-scene')
+    //console.log(sceneE1);
     var rainmodel = document.createElement('a-asset-item')
     rainmodel.setAttribute('id', 'rain')
     rainmodel.setAttribute('src', '/model_asset/rain/scene.gltf')
 
   
-    sceneE1.appendChild(rainmodel)
+    scene.appendChild(rainmodel)
       // sceneE1.addEventListener("markerFound", function(){
       //   position = document.querySelector("#m1").getAttribute('position');
       //       //alert(position);
@@ -70,27 +70,66 @@ AFRAME.registerComponent('playground', {
           dur: '15000'
         }
         //model.setAttribute('animation', weather_animation_attributes)
-        sceneE1.appendChild(model);
+        scene.appendChild(model);
     }
    
     console.log(Px);
+
+    distance();
 
 
    
     },
     tick: function(){
-      var scene = document.querySelector("a-scene");
-      var mark1 = document.querySelector("#m1");
-      var mark2 = document.querySelector("#m2");
-      if(mark1.visible && mark2.visible){
-        console.log("mark1")
-        console.log(mark1.getAttribute("position"))
-        console.log("mark2")
-        console.log(mark2.getAttribute("position"))
-      }
+      // var scene = document.querySelector("a-scene");
+      // var mark1 = document.querySelector("#m1");
+      // var mark2 = document.querySelector("#m2");
+      // // if(mark1.visible){
+      // //      console.log("mark1")
+      // //     console.log(mark1.getAttribute("position"))
+      // // }
+
+      // if(mark1.object3D.visible){
+      //   console.log("mark1")
+      //   console.log(mark1.getAttribute("position"))
+      // }
+      // if(mark1.visible && mark2.visible){
+      //   console.log("mark1")
+      //   console.log(mark1.getAttribute("position"))
+      //   console.log("mark2")
+      //   console.log(mark2.getAttribute("position"))
+      // }
     }
 
   });
+  function distance(){
+    // import this on your HTML
+  window.addEventListener('load', () => {
+  const camera = document.querySelector('[camera]');
+  const marker = document.querySelector('a-marker');
+  let check;
+
+  marker.addEventListener('markerFound', () => {
+      let cameraPosition = camera.object3D.position;
+      let markerPosition = marker.object3D.position;
+      let distance = cameraPosition.distanceTo(markerPosition)
+
+      check = setInterval(() => {
+          cameraPosition = camera.object3D.position;
+          markerPosition = marker.object3D.position;
+          distance = cameraPosition.distanceTo(markerPosition)
+
+          // do what you want with the distance:
+          console.log(distance);
+      }, 100);
+  });
+
+  marker.addEventListener('markerLost', () => {
+    clearInterval(check);
+  })
+})
+  }
+
 
   function test(){
     //window.location.href = '/NFTBasedhtml.html';

@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-        <script src="https://unpkg.com/aframe-button-controls@^1.1.0/aframe-button-controls.js"></script> 
+        <!-- <script src="https://unpkg.com/aframe-button-controls@^1.1.0/aframe-button-controls.js"></script>  -->
         <!-- <script src = "countstep.js"></script> -->
         <script src="weather.js"></script>
         
@@ -27,9 +27,9 @@
             >
             
         
-              
-                <a-marker id = "m1" type='barcode' value='1' emitevents="true"></a-marker>
-                <a-marker id = "m1" type='barcode' value='2' emitevents="true"></a-marker>
+                
+                <a-marker id = "m1" preset="hiro" emitevents="true"></a-marker>
+                <!-- <a-marker id = "m2" type='barcode' value='2' ></a-marker> -->
            
                 <a-camera gps-camera ="simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 " rotation-reader >
              
