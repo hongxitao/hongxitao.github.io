@@ -110,7 +110,7 @@ AFRAME.registerComponent('playground', {
   let check;
 
   marker.addEventListener('markerFound', () => {
-    alert("found it");
+    document.querySelector("#top").setAttribute("value","found it");
       // let cameraPosition = camera.object3D.position;
       // let markerPosition = marker.object3D.position;
       // let distance = cameraPosition.distanceTo(markerPosition)
@@ -126,7 +126,8 @@ AFRAME.registerComponent('playground', {
   });
 
   marker.addEventListener('markerLost', () => {
-    clearInterval(check);
+    //clearInterval(check);
+    document.querySelector("#top").setAttribute("value","lose it");
   })
 })
   }
