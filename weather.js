@@ -76,7 +76,8 @@ AFRAME.registerComponent('playground', {
   });
 
   function test(){
-    window.addEventListener("devicemotion", handleMotion);
+    window.location.href = '/NFTBasedhtml.html';
+    //window.addEventListener("devicemotion", handleMotion);
     //Px = document.querySelector('a-camera').object3D.position.x; 
     //window.addEventListener("deviceorientation", handleOrientation);
 
