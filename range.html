@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <!-- <script src="https://unpkg.com/aframe-button-controls@^1.1.0/aframe-button-controls.js"></script>  -->
+        <!-- <script src = "countstep.js"></script> -->
+        <script src="weather.js"></script>
+        
+    </head>
+
+    <body>
+       
+        <div style="margin-top: 40%; z-index: 99999; position: relative;" >
+            <center><button id="snap1" onclick="test()">拍照</button></center>
+        </div>
+        
+
+
+        <a-scene playground
+            
+            arjs="trackingMethod: best; sourceType: webcam;  debugUIEnabled: false;"
+            >
+            
+        
+                
+                <a-marker id = "m1" preset="hiro" emitevents="true"></a-marker>
+                <!-- <a-marker id = "m2" type='barcode' value='2' ></a-marker> -->
+           
+                <a-camera gps-camera ="simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 " rotation-reader >
+             
+                <a-text id = "top" value = "hello" position="0 0 -1" scale = "0.2 0.2 0.2"></a-text>
+                <a-text id = "inter" value = "h" position = "0 -0.3 -1" scale = "0.2 0.2 0.2"></a-text>
+                
+                    <!-- <a-entity button-controls></a-entity> -->
+                
+                </a-camera>
+            <!-- displayWidth: 1280; displayHeight: 960;<a-entity id="snap" geometry="primitive: box" material="color: red" position="0 0 -2" scale = " 0.5 0.5 0.5"> -->
+        </a-scene>
+        
+        <!-- <button id = "start_demo"></button> -->
+    </body>
+    
+</html>
