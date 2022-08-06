@@ -26,7 +26,7 @@ AFRAME.registerComponent('range_test', {
                     //box.setAttribute("rotation",{x:markerRotation._x, y:markerRotation._y, z:markerRotation._z})
                     // do what you want with the distance:
                     //console.log(distance);
-                }, 100);
+                }, 16);
 
             })
             marker.addEventListener("markerLost", function(){
