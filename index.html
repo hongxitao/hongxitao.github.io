@@ -26,15 +26,12 @@
     <body>
         <a-scene range_test
         embedded
-        arjs="trackingMethod: best; sourceType: webcam; 
-        patternRatio: 0.75; maxDetectionRate: 60; detectionMode: mono;
-        debugUIEnabled: false;
+        arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;
         sourceWidth: 1920; sourceHeight: 1080; displayWidth: 1920; displayHeight: 1080;"
-        renderer="antialias: true; alpha: true; precision: medium;"
         vr-mode-ui="enabled: false;"
         >
         
-            <a-marker preset="hiro" emitevents="true" smoothCount=0 smoothTolerance=0.0001>
+            <a-marker preset="hiro" emitevents="true">
                 <a-box color="yellow" position="0 0 0"></a-box>
             </a-marker>
             <a-camera>
