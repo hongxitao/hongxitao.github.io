@@ -1,6 +1,20 @@
 AFRAME.registerComponent('range_test', {
 
     init: function(){
+            const marker = document.querySelector("a-marker");
+            
+            var text = document.querySelector("#top");
+            marker.addEventListener("markerFound", function(){
+                
+                text.setAttribute("value", "found");
+
+            })
+            marker.addEventListener("markerLost", function(){
+                text.setAttribute("value", "lost");
+
+            })
+
+
         var scene = document.querySelector("a-scene");
         var rainmodel = document.createElement('a-asset-item')
         rainmodel.setAttribute('id', 'rain')
@@ -15,6 +29,7 @@ AFRAME.registerComponent('range_test', {
             model.setAttribute('gps-entity-place',{longitude: long,latitude: lat})
             
             model.setAttribute('scale', {x: 0.3, y: 0.3, z: 0.3});
+            model.setAttribute("position", {x:0, y:-134.42619, z:-215.4534});
             
             scene.appendChild(model);
         }
