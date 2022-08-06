@@ -4,9 +4,24 @@ AFRAME.registerComponent('range_test', {
             const marker = document.querySelector("a-marker");
             
             var text = document.querySelector("#top");
+            const camera = document.querySelector('[camera]');
+            const box = document.querySelector('a-box');
+            let update;
             marker.addEventListener("markerFound", function(){
-                
+                //let cameraPosition = camera.object3D.position;
+                let markerPosition = marker.object3D.position;
+                //console.log(cameraPosition);
+                console.log(markerPosition);
                 text.setAttribute("value", "found");
+
+                update = setInterval(() => {
+                    //cameraPosition = camera.object3D.position;
+                    markerPosition = marker.object3D.position;
+                    box.setAttribute("position",{x:markerPosition.x, y:markerPosition.y, z:markerPosition.z});
+        
+                    // do what you want with the distance:
+                    //console.log(distance);
+                }, 100);
 
             })
             marker.addEventListener("markerLost", function(){

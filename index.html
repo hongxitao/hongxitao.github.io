@@ -20,16 +20,22 @@
         sourceWidth: 1920; sourceHeight: 1080; displayWidth: 1920; displayHeight: 1080;"
         vr-mode-ui="enabled: false;"
         >
-            <a-box color="yellow"  gps-entity-place="longitude: 51.5247038455639; latitude: -0.132348748884972" ></a-box>
+            
+            <a-box color="yellow"  gps-entity-place="longitude: 51.5247038455639; latitude: -0.132348748884972" position= "0 1 -8"></a-box>
             <a-marker preset="hiro" emitevents="true">
                 
             </a-marker>
-            <a-camera id = "marker" position="0 1.6 9">
-                <a-camera id ="gps" gps-camera ="simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 " position= "0 0 0" rotation-reader ></a-camera>
-                <a-text id = "top" value = "hello" position="0 0 -1" scale = "0.2 0.2 0.2"></a-text>
-            </a-camera>
 
-            
+            <!-- <a-camera id ="gps" gps-camera ="simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 " rotation-reader ></a-camera> -->
+            <a-entity camera gps-entity-place="longitude: 51.5247038455639; latitude: -0.132348748884972">
+
+                <!-- <a-camera id = "markerC" > -->
+                    
+                    <a-text id = "top" value = "hello" position="0 0 -1" scale = "0.2 0.2 0.2"></a-text>
+               
+    
+                <!-- </a-camera> -->
+            </a-entity>
 
         </a-scene>
     </body>
