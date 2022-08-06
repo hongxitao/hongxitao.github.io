@@ -6,19 +6,9 @@
         <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-
+        <script src= "loc_and_marker.js"></script>
         <script>
-            AFRAME.registerComponent("range_test",{
-                init: function(){
-                    var scene = document.querySelector("a-scene");
-                    scene.addEventListener("markerFound",function(){
-                        document.querySelector("#top").setAttribute("value", "found");
-                    })
-                    scene.addEventListener("markerLost", function(){
-                        document.querySelector("#top").setAttribute("value", "lost");
-                    })
-                }
-            })
+           
         </script>
         
     </head>
@@ -32,11 +22,14 @@
         >
         
             <a-marker preset="hiro" emitevents="true">
-                <a-box color="yellow" position="0 0 0"></a-box>
+                
             </a-marker>
-            <a-camera>
+            <a-camera id = "marker">
+                <a-camera id ="gps" gps-camera ="simulateLatitude: -0.132348748884972; simulateLongitude: 51.5247038455639 " position= "0 0 0" rotation-reader ></a-camera>
                 <a-text id = "top" value = "hello" position="0 0 -1" scale = "0.2 0.2 0.2"></a-text>
             </a-camera>
+
+            
 
         </a-scene>
     </body>
