@@ -6,11 +6,12 @@ AFRAME.registerComponent('range_test', {
             var text = document.querySelector("#top");
             const camera = document.querySelector('[camera]');
             const box = document.querySelector('a-box');
+            let markerPosition;
+            let markerRotation;
             let update;
             marker.addEventListener("markerFound", function(){
                 //let cameraPosition = camera.object3D.position;
-                let markerPosition = marker.object3D.position;
-                let markerRotation = marker.object3D.rotation;
+                
                 //console.log(cameraPosition);
                 //console.log(markerRotation._x);
                 text.setAttribute("value", "found");
@@ -30,8 +31,8 @@ AFRAME.registerComponent('range_test', {
             })
             marker.addEventListener("markerLost", function(){
                 text.setAttribute("value", "lost");
-                box.setAttribute("position", {x:0, y:1, z:-8});
-                console.log(box.object3D.position);
+                box.setAttribute("position", {x:markerPosition.x, y:markerPosition.y, z:markerPosition.z});
+                //console.log(box.object3D.position);
                 clearInterval(update);
 
             })
