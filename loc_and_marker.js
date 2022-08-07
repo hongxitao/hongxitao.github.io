@@ -2,7 +2,7 @@ AFRAME.registerComponent('range_test', {
 
     init: function(){
             const marker = document.querySelector("a-marker");
-            marker.setAttribute("visble", "true");
+            // marker.setAttribute("visble", "true");
             var text = document.querySelector("#top");
             const camera = document.querySelector('[camera]');
             const box = document.querySelector('a-box');
