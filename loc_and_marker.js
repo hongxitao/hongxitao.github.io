@@ -8,7 +8,7 @@ AFRAME.registerComponent('range_test', {
             const box = document.querySelector('a-box');
             let markerPosition;
             let markerRotation;
-            let boxPostion; 
+            let boxPosition; 
             let update;
             marker.addEventListener("markerFound", function(){
                 //let cameraPosition = camera.object3D.position;
@@ -21,7 +21,7 @@ AFRAME.registerComponent('range_test', {
                     //cameraPosition = camera.object3D.position;
                     markerPosition = marker.object3D.position;
                     markerRotation = marker.object3D.rotation;
-                    boxPostion = box.object3D.position;
+                    boxPosition = box.object3D.position;
                     //box.object3D.position.set(markerPosition);
                     // box.object3D.setRotationFromEuler(markerRotation);
                     // box.setAttribute("position",{x:markerPosition.x, y:markerPosition.y, z:markerPosition.z});
@@ -34,7 +34,7 @@ AFRAME.registerComponent('range_test', {
             marker.addEventListener("markerLost", function(){
                 text.setAttribute("value", "lost");
                 marker.setAttribute("visible", "true");
-                box.setAttribute("position", {x:markerPosition.x+boxPostion.x, y:markerPosition.y+boxPostion.y, z:markerPosition.z+boxPostion.z});
+                box.setAttribute("position", {x:markerPosition.x+boxPosition.x, y:markerPosition.y+boxPosition.y, z:markerPosition.z+boxPosition.z});
                 //console.log(box.object3D.position);
                 clearInterval(update);
 
@@ -45,7 +45,7 @@ AFRAME.registerComponent('range_test', {
 
     },
 
-    tick: function(){
-        console.log(document.querySelector("a-box").object3D.position);
-    }
+    // tick: function(){
+    //     console.log(document.querySelector("a-box").object3D.position);
+    // }
 })
