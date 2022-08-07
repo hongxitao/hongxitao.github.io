@@ -33,6 +33,7 @@ AFRAME.registerComponent('range_test', {
             })
             marker.addEventListener("markerLost", function(){
                 text.setAttribute("value", "lost");
+                box.setAttribute("visible", "true");
                 box.setAttribute("position", {x:markerPosition.x+boxPostion.x, y:markerPosition.y+boxPostion.y, z:markerPosition.z+boxPostion.z});
                 //console.log(box.object3D.position);
                 clearInterval(update);
