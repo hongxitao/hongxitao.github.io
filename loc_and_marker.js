@@ -27,7 +27,7 @@ AFRAME.registerComponent('range_test', {
                     markerRotation = marker.object3D.rotation;
                     //box.object3D.position.set(markerPosition);
                     box.object3D.setRotationFromEuler(markerRotation);
-                    box.setAttribute("position",{x:markerPosition.x+0.2, y:markerPosition.y-0.1, z:markerPosition.z-0.3});
+                    box.setAttribute("position",{x:markerPosition.x, y:markerPosition.y, z:markerPosition.z});
                     //box.setAttribute("rotation",{x:markerRotation._x, y:markerRotation._y, z:markerRotation._z})
                     // do what you want with the distance:
                     //console.log(distance);
@@ -36,7 +36,7 @@ AFRAME.registerComponent('range_test', {
             })
             marker.addEventListener("markerLost", function(){
                 text.setAttribute("value", "lost");
-                box.setAttribute("position", {x:markerPosition.x+0.2, y:markerPosition.y-0.1, z:markerPosition.z-0.3});
+                box.setAttribute("position", {x:markerPosition.x, y:markerPosition.y, z:markerPosition.z});
                 //console.log(box.object3D.position);
                 clearInterval(update);
 
