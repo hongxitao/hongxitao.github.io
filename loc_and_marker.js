@@ -1,6 +1,11 @@
 AFRAME.registerComponent('range_test', {
 
     init: function(){
+            const scene = document.querySelector("a-scene");
+            let width = window.screen.availWidth;
+            let height = window.screen.availHeight;
+            
+            scene.setAttribute("arjs", `trackingMethod: best; sourceType: webcam; debugUIEnabled: false; displayWidth:${width}; displayHeight:${height} `)
             const marker = document.querySelector("a-marker");
             
             var text = document.querySelector("#top");
@@ -77,7 +82,7 @@ AFRAME.registerComponent('range_test', {
 
     },
 
-    tick: function(){
-        console.log(document.querySelector("a-box").object3D.position);
-    }
+    // tick: function(){
+    //     console.log(document.querySelector("a-box").object3D.position);
+    // }
 })
