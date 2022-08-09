@@ -27,7 +27,7 @@ AFRAME.registerComponent('range_test', {
                     markerRotation = marker.object3D.rotation;
                     //box.object3D.position.set(markerPosition);
                     box.object3D.setRotationFromEuler(markerRotation);
-                    box.setAttribute("position",{x:markerPosition.x+0.2, y:markerPosition.y-0.1, z:markerPosition.z});
+                    box.setAttribute("position",{x:markerPosition.x+0.2, y:markerPosition.y-0.1, z:markerPosition.z-0.3});
                     //box.setAttribute("rotation",{x:markerRotation._x, y:markerRotation._y, z:markerRotation._z})
                     // do what you want with the distance:
                     //console.log(distance);
