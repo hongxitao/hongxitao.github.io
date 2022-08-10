@@ -5,7 +5,7 @@ AFRAME.registerComponent('range_test', {
             let width = window.screen.availWidth;
             let height = window.screen.availHeight;
             
-            scene.setAttribute("arjs", `trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth:${width};sourceHeight:${height};displayWidth:${width}; displayHeight:${height}; maxDetectionRate: 60; `)
+            scene.setAttribute("arjs", `trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth:${width};sourceHeight:${height};displayWidth:${width}; displayHeight:${height}; maxDetectionRate: 60; patternRatio: 0.7 `)
             const marker = document.querySelector("a-marker");
             
             var text = document.querySelector("#top");
@@ -37,6 +37,7 @@ AFRAME.registerComponent('range_test', {
             marker.addEventListener("markerLost", function(){
                 text.setAttribute("value", "lost");
                 box.setAttribute("position", {x:markerPosition.x, y:markerPosition.y, z:markerPosition.z});
+                box.object3D.setRotationFromEuler(markerRotation);
                 //console.log(box.object3D.position);
                 clearInterval(update);
 
