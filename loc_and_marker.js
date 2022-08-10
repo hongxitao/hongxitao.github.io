@@ -5,7 +5,7 @@ AFRAME.registerComponent('range_test', {
             let width = window.screen.availWidth;
             let height = window.screen.availHeight;
             
-            scene.setAttribute("arjs", `trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth:${width};sourceHeight:${height};displayWidth::${width}; displayHeight::${height}; maxDetectionRate: 60;`)
+            scene.setAttribute("arjs", `trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth:${width};sourceHeight:${height};displayWidth::${width}; displayHeight::${height}; `)
             const marker = document.querySelector("a-marker");
             
             var text = document.querySelector("#top");
